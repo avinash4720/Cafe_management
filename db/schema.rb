@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_09_073406) do
+ActiveRecord::Schema.define(version: 2020_05_10_063858) do
 
   create_table "menuitems", force: :cascade do |t|
     t.bigint "menu_id"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2020_05_09_073406) do
     t.string "password_digest"
     t.string "name"
     t.string "role"
+    t.string "email"
   end
 
 end
