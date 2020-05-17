@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Foddy Buddy</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="sample.css">
+    <%= stylesheet_link_tag "sample" %>
+    
+    
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto|Caveat&display=swap" rel="stylesheet">
     <!-- Boot Strap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="sample.css">
     <!-- Font Awesome -->
     <%= stylesheet_link_tag "reset" %>
     <%= stylesheet_link_tag "sign" %>

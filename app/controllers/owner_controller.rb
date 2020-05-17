@@ -6,4 +6,8 @@ class OwnerController < ApplicationController
         render "index"
         
     end
+    def clerk
+        render "clerk"
+    end
+
   end

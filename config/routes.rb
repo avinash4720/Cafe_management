@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   get "/owner" => "owner#index"
   get "/signin" => "sessions#new", as: :new_sessions
   post "/signin" => "sessions#create", as: :sessions
-  delete "/signout" => "sessions#destroy", as: :destroy_session
+  
+  get "/signout" => "sessions#destroy", as: :destroy_session
+  resources :categories
   resources :users
+  resources :sessions
+  resources :menuitems
+  resources :owner
 end

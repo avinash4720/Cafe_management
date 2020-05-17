@@ -1,10 +1,4 @@
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard</title>
-    <link rel="stylesheet" type="text/css" href="sample.css">
-</head>
-<body>
+<main class="owner">
 <div class="wrapper">
   
   <div class="top_navbar">
@@ -24,8 +18,8 @@
         <li><a href="#">
           <i class="fas fa-bell"></i>
           </a></li>
-        <li><a href="#">
-          <i class="fas fa-user"></i>
+        <li><a href="/signout" data-method="delete">
+          <i class="fas fa-user" ></i>
           </a></li>
       </ul>
     </div>
@@ -57,73 +51,80 @@
   </div>
   
   <div class="main_container">
+  <div class="ash" style="display: flex;">
     <div class="border-scroll">
-      <h1 style="color: #E62E5D;margin-left: auto;" align="center">Active Menu</h2>
+      <h1 style="color: #E62E5D;margin-left: auto;font-size:40px;" align="center">Active Menu</h1>
       <div class="item-scrollbar">
         <ol>
-          <p style="padding: 2px;font-size: 30px;">Starters</p>
+          <% Category.all.each do |category| %>
+          <p style="padding: 2px;font-size: 30px;"><%= category.name %></p>
+          <%menu= category.menuitems%>
+          <% menu.each do |menu| %>
               <li class="menuitem">
                 <label class="menuitem-container">
                   <input class="menuitem-checkbox" type="checkbox" >
-                    Cheesy Garlic Bread 
-                  <img class="menuitem-image" src="saas food pics/starters/cheesy garlic bread.jpg" style="float: right;" href="" height="100" width="100">
+                    <%=menu.name%>
+                  <img class="menuitem-image" src=<%= menu.img_url %> style="float: right;" href="" height="100" width="100">
                   
                 </label>
               </li>
-              <li class="menuitem">
-                <label class="menuitem-container">
-                  <input class="menuitem-checkbox" type="checkbox">
-                    Albuquerque fries
-                  <img class="menuitem-image" src="saas food pics/starters/albq fries.JPG" href="" height="100" width="100">
-                </label>
-              </li>
-              <li class="menuitem">
-                <label class="menuitem-container">
-                  <input class="menuitem-checkbox" type="checkbox" >
-                   	zucchini fritters
-                  <img class="menuitem-image" src="saas food pics/starters/fritters.jpg" style="float: right;" href="" height="100" width="100">
-                  
-                </label>
-              </li>
-              <li class="menuitem">
-                <label class="menuitem-container">
-                  <input class="menuitem-checkbox" type="checkbox" >
-                   Nachos to the rescue 
-                  <img class="menuitem-image" src="saas food pics/starters/nachos.jpg" style="float: right;" href="" height="100" width="100">
-                  
-                </label>
-              </li>
-          <p style="padding: 2px;font-size: 30px;">Burgers</p>   
-              <li class="menuitem">
-                <label class="menuitem-container">
-                  <input class="menuitem-checkbox" type="checkbox" >
-                  1000 island 
-                  <img class="menuitem-image" src="saas food pics/burger/1000 island.jpg" style="float: right;" href="" height="100" width="100">
-                  
-                </label>
-              </li>
-              <li class="menuitem">
-                <label class="menuitem-container">
-                  <input class="menuitem-checkbox" type="checkbox" >
-                  Curious case of Benjamin burger  
-                  <img class="menuitem-image" src="saas food pics/burger/curious case.jpg" style="float: right;" href="" height="100" width="100">
-                  
-                </label>
-              </li>
-              <li class="menuitem">
-                <label class="menuitem-container">
-                  <input class="menuitem-checkbox" type="checkbox" >
-                  Grilled Odyssey    
-                  <img class="menuitem-image" src="saas food pics/burger/odyssey.jpg" style="float: right;" href="" height="100" width="100">
-                  
-                </label>
-              </li>
+              <%end%>
+             <%end%> 
         </ol>
       </div>
     </div>
-    
+    <div class="border-scroll">
+      <h1 style="color: #E62E5D;margin-left: auto;font-size:40px;" align="center">All Menu Items</h1>
+      <div class="item-scrollbar">
+        <ol>
+          <% Category.all.each do |category| %>
+          <p style="padding: 2px;font-size: 30px;"><%= category.name %></p>
+          <%menu= category.menuitems%>
+          <% menu.each do |menu| %>
+              <li class="menuitem">
+                <label class="menuitem-container">
+                  <input class="menuitem-checkbox" type="checkbox" >
+                    <%=menu.name%>
+                  <img class="menuitem-image" src=<%= menu.img_url %> style="float: right;" href="" height="100" width="100">
+                   
+                </label>
+              </li>
+              <%end%>
+             <%end%> 
+        </ol>
+      </div>
+      <input class="Addsales-button" type="button" value="Create New Menu" >
+    </div>
+  </div>  
+  <div class="ash" style="display: flex;">
+      <div class="categorya">
+        <h1 align="center">Create a new Category</h1>
+        <%= form_with(url: "/categories", method: "POST") do %>
+        <input class="addcategory-text" type="text" placeholder="Name" name="name">
+        <input class="addclerk-button" type="submit" value="Add" >
+        <%end%>
+      </div>
+      <div class="categoryb">
+        <h1 align="center">Add a new Menu Item</h1>
+        <%= form_with(url: "/menuitems", method: "POST") do %>
+        <section style="display: flex;align-items: center;">
+          <h3>Category name</h3>
+          <input class="addmenuitem-text" type="text" placeholder="Name" name="category">
+        </section>
+        <section style="display: flex;align-items: center;">
+          <h3>MenuItem Name</h3>
+          <input class="addmenuitem-text" type="text" placeholder="Name" name="name">
+        </section>
+        <section style="display: flex;align-items: center;">
+          <h3>Price</h3>
+          <input class="addmenuitem-text" type="text" placeholder="Name" name="price">
+        </section>
+        <input class="addmenuitem-button" type="submit" value="Add" >
+        <%end%>
+      </div>
+    </div>
   </div>
 </div>
-</body>
+</main>
 
  

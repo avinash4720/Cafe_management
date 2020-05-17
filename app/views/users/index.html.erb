@@ -13,10 +13,14 @@
                 <a class="sign-a" href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
             </div>
             <span class="sign-span">or use your email for registration</span> -->
-            <input class="sign-input" type="text" placeholder="Name" />
-            <input class="sign-input" type="email" placeholder="Email" />
-            <input class="sign-input" type="password" placeholder="Password" />
-            <button class="sign-btn">Sign Up</button>
+            <%= form_with url: users_path do |form| %>
+            
+             <%= form.text_field :name, class: "sign-input",placeholder: "Name", autofocus: "autofocus"%>
+             <%= form.email_field :email, class: "sign-input",placeholder: "Email",autofocus: "autofocus" %>
+             <%= form.password_field :password, class: "sign-input",placeholder: "Password",autofocus: "autofocus" %>
+             <%= form.submit "Sign Up", class: "sign-btn" %>
+            
+            <% end %>
         </form>
     </div>
     <div class="form-container sign-in-container">
@@ -31,10 +35,12 @@
                 <a class="sign-a" href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
             </div>
             <span class="sign-span">or use your account</span> -->
-            <input class="sign-input" type="email" placeholder="Email" />
-            <input class="sign-input" type="password" placeholder="Password" />
-            <a class="sign-a" href="#">Forgot your password?</a>
-            <button class="sign-btn">Sign In</button>
+            <%= form_with url: sessions_path do |form| %>
+                <%= form.email_field :email, class: "sign-input",placeholder: "Email",autofocus: "autofocus" %>
+                <%= form.password_field :password, class: "sign-input",placeholder: "Password",autofocus: "autofocus" %>
+                <%= form.submit "Sign In", class: "sign-btn" %>
+            
+            <% end %>
         </form>
     </div>
     <div class="overlay-container">
