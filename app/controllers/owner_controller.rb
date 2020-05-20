@@ -9,5 +9,8 @@ class OwnerController < ApplicationController
     def clerk
         render "clerk"
     end
+    def sales
+        render "sales"
+    end
 
   end

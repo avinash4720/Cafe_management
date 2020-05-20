@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get "/owner" => "owner#index"
   get "/signin" => "sessions#new", as: :new_sessions
   post "/signin" => "sessions#create", as: :sessions
+  get"/clerkdash" => "owner#clerk"
+  get"/salesdash" => "owner#sales"
+  get"/userdash" => "owner#user"
   
   get "/signout" => "sessions#destroy", as: :destroy_session
   resources :categories

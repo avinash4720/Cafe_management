@@ -16,7 +16,20 @@
   height: 100%;
   box-sizing: border-box;
 }
-
+.clerkdash,.salesdash,.usersdash{
+  background-image: url("bg.jpg");
+  background-size: auto;
+  background-attachment: fixed;
+  height: 100vh;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+ 
+}
 
 
 .wrapper{
@@ -150,7 +163,7 @@
   width: (100% - 200px);
   margin-top: 70px;
   margin-left: 200px;
-  height:100%;
+  height: auto;
   padding: 15px;
   transition: all 0.3s ease;
   
@@ -240,6 +253,7 @@
 .wrapper.collapse .main_container{
   width: (100% - 70px);
   margin-left: 70px;
+  height:100%;
 }
 
 .menuitem-checkbox{
@@ -303,7 +317,7 @@
   margin:0 auto;
   margin-top: 50px;
   margin-bottom: 30px;
-  margin-left: 70px;
+  margin-left: 400px;
   width: 1240px;
 }
 
@@ -358,7 +372,6 @@
   margin-left: 400px;
   margin-top: 50px;
   margin-bottom: 30px;
-  margin-left: 40px;
   width: 400px;
 }
 

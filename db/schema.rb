@@ -10,11 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_14_111957) do
+ActiveRecord::Schema.define(version: 2020_05_20_110728) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.text "img_url"
+  end
+
+  create_table "menuhelpers", force: :cascade do |t|
+    t.bigint "menu_id"
+    t.bigint "menuitem_id"
+    t.bigint "category_id"
   end
 
   create_table "menuitems", force: :cascade do |t|
