@@ -77,7 +77,9 @@
                 <li class="menuitem">
                   <label class="menuitem-container">
                     <h3>
-                      <%=cat.name%><h3 style="margin-left:15px;font-style:italic;font-size:15px;color:#E62E5D;">&#x20b9;<%=cat.price%></h3></h3>
+                      <%=cat.name%><h3 style="margin-left:15px;font-style:italic;font-size:15px;color:#E62E5D;">&#x20b9;<%=cat.price%></h3>
+                    </h3>
+                    
                     <img class="menuitem-image" src=<%= cat.img_url %> style="float: right;" href="" height="100" width="100">
                     
                   </label>
@@ -101,7 +103,15 @@
                 <li class="menuitem">
                   <label class="menuitem-container">
                     <input class="menuitem-checkbox" type="checkbox" >
-                      <%=menu.name%><h3 style="margin-left:15px;font-style:italic;font-size:15px;color:#E62E5D;">&#x20b9;<%=menu.price%></h3>
+                      <%=menu.name%>
+                      <h3 style="margin-left:15px;font-style:italic;font-size:15px;color:#E62E5D;">&#x20b9;<%=menu.price%></h3>
+                      <a href="javascript:void(0)">
+                        <%= form_with(url: "/menuitems/#{menu.id}" , method: "DELETE" ) do %>
+                        <button style="background-color:Transparent;border:none">
+                        <i class="	fas fa-trash" style="margin-left:30px;color:#E62E5D;font-size:15px;"type=submit ></i>
+                        </button>
+                        <%end%>
+                      </a>
                     <img class="menuitem-image" src=<%= menu.img_url %> style="float: right;" href="" height="100" width="100">
                     
                   </label>
@@ -113,28 +123,38 @@
         <input class="Addsales-button" type="button" value="Create New Menu" >
       </div>
     </div>  
-     <div class="ash" style="display: flex;">
+    <div class="ash" style="display: flex;">
+     <% Menu.all.each do |menu| %>
       <div class="border-scroll">
-        <h1 style="color: #E62E5D;margin-left: auto;font-size:40px;" align="center"> Menu</h1>
+        
+        <h1 style="color: #E62E5D;margin-left: auto;font-size:40px;" align="center"><%= menu.name %></h1>
         <div class="item-scrollbar">
+        
+        
           <ol>
             <% Category.all.each do |category| %>
+            <%item=Menuhelper.of_user(menu,category)%>
+            <%if item.present? then%>
             <p style="padding: 2px;font-size: 30px;"><%= category.name %></p>
-            <%menu= category.menuitems%>
-            <% menu.each do |menu| %>
+            <%end%>
+            <% item.each do |item| %>
+              <% cat=Menuitem.find(item.menuitem_id)%>
                 <li class="menuitem">
                   <label class="menuitem-container">
                     <h3>
-                      <%=menu.name%><h3 style="margin-left:15px;font-style:italic;font-size:15px;color:#E62E5D;">&#x20b9;<%=menu.price%></h3></h3>
-                    <img class="menuitem-image" src=<%= menu.img_url %> style="float: right;" href="" height="100" width="100">
+                      <%=cat.name%><h3 style="margin-left:15px;font-style:italic;font-size:15px;color:#E62E5D;">&#x20b9;<%=cat.price%></h3></h3>
+                    <img class="menuitem-image" src=<%= cat.img_url %> style="float: right;" href="" height="100" width="100">
                     
                   </label>
                 </li>
-                <%end%>
+            <%end%>
+            
               <%end%> 
           </ol>
+          
         </div>
       </div>
+      <%end%>
     </div>
     <div class="ash" style="display: flex;">
         <div class="categorya">
@@ -158,6 +178,10 @@
           <section style="display: flex;align-items: center;">
             <h3>Price</h3>
             <input class="addmenuitem-text" type="text" placeholder="Name" name="price">
+          </section>
+          <section style="display: flex;align-items: center;">
+            <h3>Image url</h3>
+            <input class="addmenuitem-text" type="text" placeholder="Name" name="url">
           </section>
           <input class="addmenuitem-button" type="submit" value="Add" >
           <%end%>

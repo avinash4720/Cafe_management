@@ -51,29 +51,24 @@
   </div>
   <div class="main_container">
       <div class="addclerk">
-        <input class="addclerk-text" type="text" placeholder="Name">
-        <input class="addclerk-button" type="button" value="Add">
+        <%= form_with(url: "/users/clerk", method: "POST") do %>
+        <input class="addclerk-text" type="text" placeholder="Name" name="name">
+        <input class="addclerk-button" type="submit" value="Add">
+        <%end%>
       </div>
       <table id="clerktable">
+        
         <tr>
           <th>Name</th>
         </tr>
+        <%user=User.clerk()%>
         <tr>
-          <td>Alfreds Futterkiste</td>
+        
+        <%user.each do|user| %>
+          <td><%=user.name%></td>
            
         </tr>
-        <tr>
-          <td>Berglunds snabbköp</td>
-           
-        </tr>
-        <tr>
-          <td>Centro comercial Moctezuma</td>
-           
-        </tr>
-        <tr>
-          <td>Ernst Handel</td>
-          
-        </tr>
+        <%end%>
       </table>
   </div>
 </div>

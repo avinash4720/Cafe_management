@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get"/clerkdash" => "owner#clerk"
   get"/salesdash" => "owner#sales"
   get"/userdash" => "owner#user"
-  
+  post "/users/clerk" => "users#clerk"
   get "/signout" => "sessions#destroy", as: :destroy_session
   resources :categories
   resources :users

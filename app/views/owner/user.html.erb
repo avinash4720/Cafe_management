@@ -52,6 +52,19 @@
     </ul>
   </div>
   <div class="main_container">
-      
+      <table id="clerktable">
+        
+        <tr>
+          <th>Name</th>
+        </tr>
+        <%user=User.customer()%>
+        <tr>
+        
+        <%user.each do|user| %>
+          <td><%=user.name%></td>
+           
+        </tr>
+        <%end%>
+      </table>
   </div>
 </main>
