@@ -288,14 +288,14 @@
   display: flex; 
   margin: 0 auto; 
   margin-top: 20px;
+  align-items: center;
 }
 
 
 .Addsales-date{
-  padding: 10px;
+  padding: 5px 10px;
   align-items: center;
-
-  font-size: 20px;
+  font-size: 15px;
   color: #453C52;
   margin-top: 20px;
   margin: 0 auto;
@@ -315,9 +315,7 @@
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   margin:0 auto;
-  margin-top: 50px;
-  margin-bottom: 30px;
-  margin-left: 400px;
+  margin-top: 10px;
   width: 1240px;
 }
 
@@ -429,6 +427,18 @@
   margin-left: auto;
   margin-right: 10px;
   margin-bottom: 20px;
+  border-radius: 4px;
+  border: 1px solid #BFB8CC;
+}
+.select-category{
+  margin-top: 10px;
+  padding: 5px 10px;
+  font-size: 25px;
+  color: #453C52;
+  margin-left: auto;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  background: #fff;
   border-radius: 4px;
   border: 1px solid #BFB8CC;
 }

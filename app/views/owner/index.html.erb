@@ -51,7 +51,7 @@
           <span class="icon"><i class="fab fa-btc"></i></span>
           <span class="title">Sales Report</span>
           </a></li>
-        <li><a href="orders.html">
+        <li><a href="/orderdash">
           <span class="icon"><i class="fas fa-cart-plus"></i></span>
           <span class="title">Orders</span>
           </a></li>
@@ -141,7 +141,12 @@
           <%= form_with(url: "/menuitems", method: "POST") do %>
           <section style="display: flex;align-items: center;">
             <h3>Category name</h3>
-            <input class="addmenuitem-text" type="text" placeholder="Name" name="category">
+            <select id="user_id" name="category" class="select-category">
+              <option value="">Choose a Category</option>
+              <% Category.all.each do |category| %> 
+              <option value="<%=category.name%>"><%=category.name%></option>
+              <%end%>
+            </select>
           </section>
           <section style="display: flex;align-items: center;">
             <h3>MenuItem Name</h3>

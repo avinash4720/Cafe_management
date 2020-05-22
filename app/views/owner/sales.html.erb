@@ -129,7 +129,7 @@
           <span class="icon"><i class="fab fa-btc"></i></span>
           <span class="title">Sales Report</span>
           </a></li>
-        <li><a href="orders.html">
+        <li><a href="/orderdash">
           <span class="icon"><i class="fas fa-cart-plus"></i></span>
           <span class="title">Orders</span>
           </a></li>
@@ -147,40 +147,35 @@
         <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     </div>
   </div>
-    <div class="View-sales-report">
-      <h1 style="text-align: center;margin-bottom: 4px;" >View Sales Report</h1>
+    
+    
+    
+    <div id="mydiv" style="display:none;"> 
+      <table id="customers">
+        <tr>
+          <th>Name</th>
+          <th>Total Amount</th>
+        </tr>
+        <tr>
+          <td>Alfreds Futterkiste</td>
+          <td>457834</td>
+        </tr>
+        <tr>
+          <td>Berglunds snabbköp</td>
+          <td>45678</td>
+        </tr>
+        <tr>
+          <td>Centro comercial Moctezuma</td>
+          <td>20000</td>
+        </tr>
+        <tr>
+          <td>Ernst Handel</td>
+          <td>1000</td>
+        </tr>
+      </table>
+    
     </div>
     
-    <div class="Sales-date" >
-      <input class="Addsales-date" type="date">
-      <h1 style="color: white; margin-top: 7px;font-size:20px;">TO</h2>
-      <input class="Addsales-date" type="date">
-      <input class="Addsales-button" type="button" value="view" onclick="myFunction()" >
-    </div>
-    <div id="mydiv" style="display:none;"> 
-    <table id="customers">
-      <tr>
-        <th>Name</th>
-        <th>Total Amount</th>
-      </tr>
-      <tr>
-        <td>Alfreds Futterkiste</td>
-        <td>457834</td>
-      </tr>
-      <tr>
-        <td>Berglunds snabbköp</td>
-        <td>45678</td>
-      </tr>
-      <tr>
-        <td>Centro comercial Moctezuma</td>
-        <td>20000</td>
-      </tr>
-      <tr>
-        <td>Ernst Handel</td>
-        <td>1000</td>
-      </tr>
-    </table>
-    </div>
     <script>
     
       function myFunction() {

@@ -1,0 +1,129 @@
+
+<main class="usersdash">
+    
+<div class="wrapper">
+  
+  <div class="top_navbar">
+    <div class="hamburger">
+       <div class="one"></div>
+       <div class="two"></div>
+       <div class="three"></div>
+    </div>
+    <div class="top_menu">
+      <div class="logo">
+         DASHBOARD
+      </div>
+      <ul>
+        <li><a href="#">
+          <i class="fas fa-search"></i>
+          </a></li>
+        <li><a href="#">
+          <i class="fas fa-bell"></i>
+          </a></li>
+        <li><a href="#">
+          <i class="fas fa-user"></i>
+          </a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="sidebar">
+      <ul>
+        <li><a href="/owner" >
+          <span class="icon"><i class="fas fa-book"></i></span>
+          <span class="title">Menus</span>
+          </a></li>
+        <li><a href="/userdash">
+          <span class="icon"><i class="	fas fa-child"></i></span>
+          <span class="title">Users</span>
+          </a></li>
+        <li><a href="/clerkdash">
+          <span class="icon"><i class="fas fa-male"></i></span>
+          <span class="title">Clerks</span>
+          </a></li>
+        <li><a href="/salesdash" >
+          <span class="icon"><i class="fab fa-btc"></i></span>
+          <span class="title">Sales Report</span>
+          </a></li>
+        <li><a href="/orderdash" class="active">
+          <span class="icon"><i class="fas fa-cart-plus"></i></span>
+          <span class="title">Orders</span>
+          </a></li>
+    </ul>
+  </div>
+  <div class="main_container">
+    <div class="Sales-date" >
+        <input class="addmenuitem-text" type="text" placeholder="User Name" name="name">
+        <h1 style="color: white; margin-top: 7px;font-size:20px;font-weight:bold;">FROM</h2>
+      <input class="Addsales-date" type="date">
+      <h1 style="color: white; margin-top: 7px;font-size:20px;font-weight:bold;">TO</h2>
+      <input class="Addsales-date" type="date">
+      <input class="Addsales-button" type="button" value="view" onclick="myFunction()" >
+    </div>
+
+    <div id="mydiv" style="display:none;"> 
+      <table id="customers">
+        <tr>
+          <th>Name</th>
+          <th>Total Amount</th>
+        </tr>
+        <tr>
+          <td>Alfreds Futterkiste</td>
+          <td>457834</td>
+        </tr>
+        <tr>
+          <td>Berglunds snabbköp</td>
+          <td>45678</td>
+        </tr>
+        <tr>
+          <td>Centro comercial Moctezuma</td>
+          <td>20000</td>
+        </tr>
+        <tr>
+          <td>Ernst Handel</td>
+          <td>1000</td>
+        </tr>
+      </table>
+    
+    </div>
+    <div class="allorder"> 
+      <table id="customers">
+        <tr>
+          <th>Order ID</th>
+          <th>NAME</th>
+          <th>DATE</th>
+          <th>AMOUNT</th>
+          <th>STATUS</th>
+        </tr>
+        <tr>
+          <%User.all.each do|user| %>
+            <%order=user.orders%>
+            <% if order.present? then%>
+            <%order.each do |order|%>
+                <td><%=order.id%></td>
+                <td><%=user.name%></td>
+                <td><%=order.date%></td>
+                <td><%=order.cost%></td>
+                <td><%=order.delivered_status ? "Delivered" : "Pending" %></td>
+            <%end%>    
+            <%end%>
+          <%end%>
+        </tr>
+      </table>
+    
+    </div>
+
+    
+    <script>
+    
+      function myFunction() {
+        var x = document.getElementById("mydiv");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+      }
+    </script>
+  </div>
+</main>
