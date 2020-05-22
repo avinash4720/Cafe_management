@@ -90,6 +90,9 @@
           </ol>
           <%end%>
         </div>
+        <a href="/menus">
+        <input class="Addsales-button" type="button" value="EDIT ALL MENUS" >
+        </a>
       </div>
       
       <div class="border-scroll">
@@ -120,41 +123,10 @@
               <%end%> 
           </ol>
         </div>
-        <input class="Addsales-button" type="button" value="Create New Menu" >
       </div>
     </div>  
-    <div class="ash" style="display: flex;">
-     <% Menu.all.each do |menu| %>
-      <div class="border-scroll">
-        
-        <h1 style="color: #E62E5D;margin-left: auto;font-size:40px;" align="center"><%= menu.name %></h1>
-        <div class="item-scrollbar">
-        
-        
-          <ol>
-            <% Category.all.each do |category| %>
-            <%item=Menuhelper.of_user(menu,category)%>
-            <%if item.present? then%>
-            <p style="padding: 2px;font-size: 30px;"><%= category.name %></p>
-            <%end%>
-            <% item.each do |item| %>
-              <% cat=Menuitem.find(item.menuitem_id)%>
-                <li class="menuitem">
-                  <label class="menuitem-container">
-                    <h3>
-                      <%=cat.name%><h3 style="margin-left:15px;font-style:italic;font-size:15px;color:#E62E5D;">&#x20b9;<%=cat.price%></h3></h3>
-                    <img class="menuitem-image" src=<%= cat.img_url %> style="float: right;" href="" height="100" width="100">
-                    
-                  </label>
-                </li>
-            <%end%>
-            
-              <%end%> 
-          </ol>
-          
-        </div>
-      </div>
-      <%end%>
+    <div class="editmenuitem">
+        <h2 align="center"style="font-size:30px;">EDIT ALL MENU ITEMS</h2>
     </div>
     <div class="ash" style="display: flex;">
         <div class="categorya">
@@ -188,6 +160,7 @@
         </div>
       </div>
   </div>
+  
     
 </main>
 

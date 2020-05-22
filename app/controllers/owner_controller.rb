@@ -12,5 +12,8 @@ class OwnerController < ApplicationController
     def sales
         render "sales"
     end
+    def menus
+        render "menus"
+    end
 
   end

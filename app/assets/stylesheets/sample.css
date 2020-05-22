@@ -382,6 +382,7 @@
   height: 150px;
   margin:0 auto;
   border-radius: 10px;
+  font-weight: 500;
 }
 .categoryb{
   background: #E62E5D;
@@ -389,6 +390,17 @@
   height: auto;
   margin:0 auto;
   border-radius: 10px;
+  font-weight: 500;
+}
+.editmenuitem{
+  width: 100%;
+  height:30px;
+  font-size: 20px;
+  background: #453C52;
+  color:#E62E5D;
+  margin-bottom: 20px;
+  font-weight: 700;
+  
 }
 .addcategory-text{
   margin-top: 10px;
