@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post "/signin" => "sessions#create", as: :sessions
   get"/clerkdash" => "owner#clerk"
   get"/salesdash" => "owner#sales"
+  get "/orderreport" => "owner#report"
   get"/userdash" => "owner#user"
   post "/users/clerk" => "users#clerk"
   get "/signout" => "sessions#destroy", as: :destroy_session

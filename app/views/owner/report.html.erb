@@ -52,24 +52,7 @@
     </ul>
   </div>
   <div class="main_container">
-      <% report_form=true%>
-      <%= form_with(url: "/orderreport", method: "GET") do %>
-        <div class="Sales-date" >
-             <select id="user_id" name="user" class="select-user">
-                  <option value="">Choose a User</option>
-                  <% User.all.each do |user| %> 
-                  <option value="<%=user.name%>"><%=user.name%></option>
-                  <%end%>
-            </select>
-            <h1 style="color: white; margin-top: 4px;margin-left:40px;font-size:20px;font-weight:bold;">FROM</h2>
-            <input class="Addsales-date" type="date" name="from">
-            <h1 style="color: white; margin-top: 7px;font-size:20px;font-weight:bold;">TO</h2>
-            <input class="Addsales-date" type="date" name="to">
-            <input class="Addsales-button" type="submit" value="view" >
-         </div>
-      <%end%>
-    
-    <div class="allorder"> 
+      <div class="allorder"> 
       <table id="customers">
         <tr>
           <th>Order ID</th>
@@ -79,18 +62,15 @@
           <th>STATUS</th>
         </tr>
         <tr>
-          <%User.all.each do|user| %>
-            <%order=user.orders%>
-            <% if order.present? then%>
-            <%order.each do |order|%>
+          
+            
+            <%@orders.each do |order|%>
                 <td><%=order.id%></td>
-                <td><%=user.name%></td>
+                <td><%=order.user.name%></td>
                 <td><%=order.date.to_time.strftime('%B %e %Y')%></td>
                 <td><%=order.cost%></td>
                 <td><%=order.delivered_status ? "Delivered" : "Pending" %></td>
             <%end%>    
-            <%end%>
-          <%end%>
         </tr>
       </table>
     
