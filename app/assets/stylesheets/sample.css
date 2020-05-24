@@ -30,6 +30,19 @@
   font-family: 'Montserrat', sans-serif;
  
 }
+.invoicedash{
+  background-image: url("bg.jpg");
+  background-size: auto;
+  background-attachment: fixed;
+  height: 100%;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
 
 
 .wrapper{
@@ -41,6 +54,7 @@
   height: 70px;
   display: flex;
   position: fixed;
+  z-index: 1;
   top: 0px;
 }
 
@@ -205,7 +219,17 @@
   width: 800px;
   overflow-y: auto;
 }
-
+.wrapper .main_container .border-scroll-clerk{
+  background: #fff;
+  margin:0 auto;
+  margin-left: 400px;
+  padding: 15px;
+  font-size: 20px;
+  line-height: 22px;
+  border-radius: 20px;
+  height: auto;
+  width: 500px;
+}
 .wrapper .main_container .item-scrollbar{
   background: #fff;
   border-radius: 5px;
@@ -217,6 +241,20 @@
   display: block;
   padding: 10px;
   height: 700px;
+  width: auto;
+  overflow-y: auto;
+}
+.wrapper .main_container .item-scrollbar-clerk{
+  background: #fff;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  margin-top: 15px;
+  padding: 15px;
+  font-size: 20px;
+  line-height: 50px;
+  display: block;
+  padding: 10px;
+  height: 200px;
   width: auto;
   overflow-y: auto;
 }
@@ -468,8 +506,6 @@
 .card {
   margin: 0 auto;
   margin-top: 40px;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
   border: none;
   -webkit-box-shadow: 0px 1px 2px 1px rgba(154, 154, 204, 0.22);
   -moz-box-shadow: 0px 1px 2px 1px rgba(154, 154, 204, 0.22);

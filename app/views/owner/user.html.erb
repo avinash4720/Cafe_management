@@ -20,8 +20,8 @@
         <li><a href="#">
           <i class="fas fa-bell"></i>
           </a></li>
-        <li><a href="#">
-          <i class="fas fa-user"></i>
+        <li><a href="/signout" data-method="delete">
+          <i class="fas fa-user" ></i>
           </a></li>
       </ul>
     </div>
@@ -52,19 +52,23 @@
     </ul>
   </div>
   <div class="main_container">
-      <table id="clerktable">
-        
-        <tr>
-          <th>Name</th>
-        </tr>
-        <%user=User.customer()%>
-        <tr>
-        
-        <%user.each do|user| %>
-          <td><%=user.name%></td>
-           
-        </tr>
-        <%end%>
-      </table>
+      <div class="border-scroll-clerk">
+        <h1 style="color: #E62E5D;margin-left: auto;font-size:40px;" align="center">All Customers</h1>
+        <div class="item-scrollbar-clerk">
+          <ol>
+               <%user=User.customer()%>
+                <li class="menuitem">
+                <%user.each do|user| %>
+                  <label class="menuitem-container">
+                  
+                    <h3>
+                      <%=user.name%>
+                      </h3>
+                      </label>
+                   <%end%>
+                </li> 
+          </ol>
+        </div>
+      </div>
   </div>
 </main>

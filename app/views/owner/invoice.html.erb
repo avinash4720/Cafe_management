@@ -1,5 +1,5 @@
 
-<main class="usersdash">
+<main class="invoicedash">
     
 <div class="wrapper">
   
@@ -20,8 +20,8 @@
         <li><a href="#">
           <i class="fas fa-bell"></i>
           </a></li>
-        <li><a href="#">
-          <i class="fas fa-user"></i>
+        <li><a href="/signout" data-method="delete">
+          <i class="fas fa-user" ></i>
           </a></li>
       </ul>
     </div>
@@ -52,86 +52,110 @@
     </ul>
   </div>
   <div class="main_container">
-       <div class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12 padding">
-     <div class="card">
-         <div class="card-header p-4">
-             <a class="pt-2 d-inline-block" href="/orderdash" data-abc="true">GO BACK</a>
-             <div class="float-right">
-                 <h3 class="mb-0">Invoice #BBB10234</h3>
-                 <%= Time.now.strftime('%B %e %Y') %>
-             </div>
-         </div>
-         <div class="card-body">
-             <div class="row mb-4">
-                 <div class="col-sm-6">
-                     <h5 class="mb-3">From:</h5>
-                     <h3 class="text-dark mb-1">FOODY BLINDERS</h3>
-                     <div>29, Singla Street</div>
-                     <div>Sikeston,New Delhi 110034</div>
-                     <div>Email: foodyblinders@gmail.com</div>
-                     <div>Phone: +91 9897 989 989</div>
-                 </div>
-                 <div class="col-sm-6 ">
-                     <h5 class="mb-3">To:</h5>
-                     <h3 class="text-dark mb-1">Akshay Singh</h3>
-                 </div>
-             </div>
-             <div class="table-responsive-sm">
-                 <table class="table table-striped">
-                     <thead>
-                         <tr>
-                             <th class="center">#</th>
-                             <th>Item</th>
-                             
-                             <th class="right">Price</th>
-                             <th class="center">Qty</th>
-                             <th class="right">Total</th>
-                         </tr>
-                     </thead>
-                     <tbody>
+     <div id="invoice">
+
+    <div class="toolbar hidden-print">
+        <div class="text-right">
+            <button id="printInvoice" class="btn btn-info"><i class="fa fa-print"></i> Print</button>
+            
+        </div>
+        <hr>
+    </div>
+    <div class="invoice overflow-auto">
+        <div style="min-width: 600px">
+            <header>
+                <div class="row">
+                    <div class="col">
+                        <a class="navbar-brand" href=""><i class="fas fa-utensils nav-icon sign-icon"></i> 
+                        <span class="logo-foody sign-foody">Foody</span> <span class="Blinders-logo" style="color:#ffbf00;">Blinders</span>
+                        </a>
+                    </div>
+                    <div class="col company-details">
+                        <h2 class="name">
+                            <a target="_blank" href="">
+                            FOODY BLINDERS
+                            </a>
+                        </h2>
+                        <div>455 Foggy Heights, AZ 85004, US</div>
+                        <div>9003180101</div>
+                        <div>foodyblinders@gmail.com</div>
+                    </div>
+                </div>
+            </header>
+            <main>
+                <div class="row contacts">
+                    <div class="col invoice-to">
+                        <div class="text-gray-light">INVOICE TO:</div>
+                        <h1 class="to" style="font-weight:bold;font-size:40px"><%=@order.user.name.titlecase%></h1>
+                    </div>
+                    <div class="col invoice-details">
+                        <h1 class="invoice-id">INVOICE 3-2-1</h1>
+                        <div class="date">Date of Invoice: <%= Time.now.strftime('%B %e %Y') %></div>
+                    </div>
+                </div>
+                <table border="0" cellspacing="0" cellpadding="0">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th class="text-left">ITEM</th>
+                            <th class="text-right">PRICE</th>
+                            <th class="text-right">QTY</th>
+                            <th class="text-right">TOTAL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
                         <%item=@order.order_items%>
                         <%i=1%>
                         <%item.each do |item|%>
-                         <tr>
-                             <td class="center"><%=i%></td>
-                             <td class="left strong"><%=item.item_name%></td>
-                             
-                             <td class="right"><%=item.item_price%></td>
-                             <td class="center"><%=item.incart%></td>
-                             <td class="right"><%=item.item_price*item.incart%></td>
-                         </tr>
+                        <tr>
+                            <td class="no"><%=i%></td>
+                            <td class="text-left"><%=item.item_name%></td>
+                            <td class="unit"><%=item.item_price%></td>
+                            <td class="qty"><%=item.incart%></td>
+                            <td class="total"><%=item.item_price*item.incart%></td>
+                        </tr>
                          <%i=i+1%>
                          <%end%>
-
-                     </tbody>
-                 </table>
-                 <%total=0%>
+                    </tbody>
+                    <%total=0%>
                  <%item.each do |item|%>
                     <%total=total+(item.item_price*item.incart)%>
                  <%end%>
-
-             </div>
-             <div class="row">
-                 <div class="col-lg-4 col-sm-5">
-                 </div>
-                 <div class="col-lg-4 col-sm-5 ml-auto">
-                     <table class="table table-clear">
-                         <tbody>
-                                 <td class="left">
-                                     <strong class="text-dark">AMOUNT</strong> </td>
-                                 <td class="right">
-                                     <strong class="text-dark" style="margin-right:35px;"><%=total%></strong>
-                                 </td>
-                             </tr>
-                         </tbody>
-                     </table>
-                 </div>
-             </div>
-         </div>
-         <div class="card-footer bg-white">
-             <p class="mb-0">BBBootstrap.com, Sounth Block, New delhi, 110034</p>
-         </div>
-     </div>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2"></td>
+                            <td colspan="2">GRAND TOTAL</td>
+                            <td><%=total%></td>
+                        </tr>
+                    </tfoot>
+                </table>
+                
+                <div class="notices">
+                    <div>NOTICE:</div>
+                    <div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
+                </div>
+            </main>
+            <footer>
+                Invoice was created on a computer and is valid without the signature and seal.
+            </footer>
+        </div>
+        <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
+        <div></div>
+    </div>
+</div>
  </div>
+  
+<script>
+ $('#printInvoice').click(function(){
+            Popup($('.invoice')[0].outerHTML);
+            function Popup(data) 
+            {
+                window.print();
+                return true;
+            }
+        });
+        
+</script>
+
   </div>
 </main>

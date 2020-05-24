@@ -105,9 +105,10 @@
             <% menu.each do |menu| %>
                 <li class="menuitem">
                   <label class="menuitem-container">
-                    <input class="menuitem-checkbox" type="checkbox" >
+                    <h3>
                       <%=menu.name%>
                       <h3 style="margin-left:15px;font-style:italic;font-size:15px;color:#E62E5D;">&#x20b9;<%=menu.price%></h3>
+                      </h3>
                       <a href="javascript:void(0)">
                         <%= form_with(url: "/menuitems/#{menu.id}" , method: "DELETE" ) do %>
                         <button style="background-color:Transparent;border:none">

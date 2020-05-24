@@ -41,6 +41,12 @@ class OwnerController < ApplicationController
       render "invoice"
       
     end
+    def deleteclerk
+      id=params[:id]
+      todo=User.find(id)
+      todo.destroy
+      redirect_to "/clerkdash"
+  end
 
 
   end

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get"/salesdash" => "owner#sales"
   get "/orderreport" => "owner#report"
   get"/userdash" => "owner#user"
+  delete"/destroyclerk"=>"owner#deleteclerk"
   post "/users/clerk" => "users#clerk"
   get "/signout" => "sessions#destroy", as: :destroy_session
   resources :categories
