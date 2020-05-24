@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get "/" => "home#index"
   get "/owner" => "owner#index"
+  get "/invoice" => "owner#invoice"
   get "/orderdash" => "owner#order"
   get "/menus" => "owner#menus"
   get "/signin" => "sessions#new", as: :new_sessions

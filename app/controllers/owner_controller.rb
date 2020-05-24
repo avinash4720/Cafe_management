@@ -21,8 +21,8 @@ class OwnerController < ApplicationController
     def report
         user = params[:user]
         u=User.find_by_name(user)
-        from = Date.parse(params[:from])
-        to = Date.parse(params[:to])
+        from = Date.parse(params[:from]) unless params[:from].blank?
+        to = Date.parse(params[:to]) unless params[:to].blank?
         if user.blank?
           @orders = Order.where("date >= ? AND date <= ?", from, to)
         elsif from.blank? && to.blank?
@@ -33,6 +33,13 @@ class OwnerController < ApplicationController
           @orders = Order.where("date >= ? AND date <= ? AND user_id = ?", from, to, u.id)
         end
         render "report"
+    end
+
+    def invoice
+      id= params[:id]
+      @order=Order.find(id)
+      render "invoice"
+      
     end
 
 

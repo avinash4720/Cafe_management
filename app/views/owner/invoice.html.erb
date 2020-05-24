@@ -1,0 +1,137 @@
+
+<main class="usersdash">
+    
+<div class="wrapper">
+  
+  <div class="top_navbar">
+    <div class="hamburger">
+       <div class="one"></div>
+       <div class="two"></div>
+       <div class="three"></div>
+    </div>
+    <div class="top_menu">
+      <div class="logo">
+         DASHBOARD
+      </div>
+      <ul>
+        <li><a href="#">
+          <i class="fas fa-search"></i>
+          </a></li>
+        <li><a href="#">
+          <i class="fas fa-bell"></i>
+          </a></li>
+        <li><a href="#">
+          <i class="fas fa-user"></i>
+          </a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="sidebar">
+      <ul>
+        <li><a href="/owner" >
+          <span class="icon"><i class="fas fa-book"></i></span>
+          <span class="title">Menus</span>
+          </a></li>
+        <li><a href="#" >
+          <span class="icon"><i class="	fas fa-child"></i></span>
+          <span class="title">Users</span>
+          </a></li>
+        <li><a href="/clerkdash" >
+          <span class="icon"><i class="fas fa-male"></i></span>
+          <span class="title">Clerks</span>
+          </a></li>
+        <li><a href="/salesdash" >
+          <span class="icon"><i class="fab fa-btc"></i></span>
+          <span class="title">Sales Report</span>
+          </a></li>
+        <li><a href="/orderdash" class="active" >
+          <span class="icon"><i class="fas fa-cart-plus"></i></span>
+          <span class="title">Orders</span>
+          </a></li>
+    </ul>
+  </div>
+  <div class="main_container">
+       <div class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12 padding">
+     <div class="card">
+         <div class="card-header p-4">
+             <a class="pt-2 d-inline-block" href="/orderdash" data-abc="true">GO BACK</a>
+             <div class="float-right">
+                 <h3 class="mb-0">Invoice #BBB10234</h3>
+                 <%= Time.now.strftime('%B %e %Y') %>
+             </div>
+         </div>
+         <div class="card-body">
+             <div class="row mb-4">
+                 <div class="col-sm-6">
+                     <h5 class="mb-3">From:</h5>
+                     <h3 class="text-dark mb-1">FOODY BLINDERS</h3>
+                     <div>29, Singla Street</div>
+                     <div>Sikeston,New Delhi 110034</div>
+                     <div>Email: foodyblinders@gmail.com</div>
+                     <div>Phone: +91 9897 989 989</div>
+                 </div>
+                 <div class="col-sm-6 ">
+                     <h5 class="mb-3">To:</h5>
+                     <h3 class="text-dark mb-1">Akshay Singh</h3>
+                 </div>
+             </div>
+             <div class="table-responsive-sm">
+                 <table class="table table-striped">
+                     <thead>
+                         <tr>
+                             <th class="center">#</th>
+                             <th>Item</th>
+                             
+                             <th class="right">Price</th>
+                             <th class="center">Qty</th>
+                             <th class="right">Total</th>
+                         </tr>
+                     </thead>
+                     <tbody>
+                        <%item=@order.order_items%>
+                        <%i=1%>
+                        <%item.each do |item|%>
+                         <tr>
+                             <td class="center"><%=i%></td>
+                             <td class="left strong"><%=item.item_name%></td>
+                             
+                             <td class="right"><%=item.item_price%></td>
+                             <td class="center"><%=item.incart%></td>
+                             <td class="right"><%=item.item_price*item.incart%></td>
+                         </tr>
+                         <%i=i+1%>
+                         <%end%>
+
+                     </tbody>
+                 </table>
+                 <%total=0%>
+                 <%item.each do |item|%>
+                    <%total=total+(item.item_price*item.incart)%>
+                 <%end%>
+
+             </div>
+             <div class="row">
+                 <div class="col-lg-4 col-sm-5">
+                 </div>
+                 <div class="col-lg-4 col-sm-5 ml-auto">
+                     <table class="table table-clear">
+                         <tbody>
+                                 <td class="left">
+                                     <strong class="text-dark">AMOUNT</strong> </td>
+                                 <td class="right">
+                                     <strong class="text-dark" style="margin-right:35px;"><%=total%></strong>
+                                 </td>
+                             </tr>
+                         </tbody>
+                     </table>
+                 </div>
+             </div>
+         </div>
+         <div class="card-footer bg-white">
+             <p class="mb-0">BBBootstrap.com, Sounth Block, New delhi, 110034</p>
+         </div>
+     </div>
+ </div>
+  </div>
+</main>
