@@ -47,6 +47,15 @@ class OwnerController < ApplicationController
       todo.destroy
       redirect_to "/clerkdash"
   end
-
+  def active
+    id=params[:id]
+    m=Menu.active().first
+    m.active_menu=false
+    m.save!
+    newm=Menu.find(id)
+    newm.active_menu= true
+    newm.save!
+    render"menus"
+end
 
   end

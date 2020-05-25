@@ -3,9 +3,9 @@ class MenuhelpersController < ApplicationController
     
     def destroy
         id=params[:id]
-        todo=Menuhelper.find(id)
-        todo.destroy
-        redirect_to "/owner"
+        t=Menuhelper.find(id)
+        t.destroy
+        redirect_to "/menus"
     end
     def create
         name=params[:name]

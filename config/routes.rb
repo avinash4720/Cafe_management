@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get "/invoice" => "owner#invoice"
   get "/orderdash" => "owner#order"
   get "/menus" => "owner#menus"
+  get "/menuactive" => "owner#active"
   get "/signin" => "sessions#new", as: :new_sessions
   post "/signin" => "sessions#create", as: :sessions
   get"/clerkdash" => "owner#clerk"

@@ -238,6 +238,18 @@
   height: auto;
   width: 500px;
 }
+.wrapper .main_container .border-scroll-menu{
+  background: #fff;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 15px;
+  font-size: 20px;
+  line-height: 22px;
+  border-radius: 20px;
+  height: auto;
+  width: 650px;
+
+}
 .wrapper .main_container .item-scrollbar{
   background: #fff;
   border-radius: 5px;
@@ -276,7 +288,7 @@
   line-height: 50px;
   display: block;
   padding: 10px;
-  height: 300px;
+  height: 400px;
   width: auto;
   overflow-y: auto;
 }
@@ -349,6 +361,9 @@
   margin: 0 auto; 
   margin-top: 20px;
   align-items: center;
+}
+.ash {
+   flex-flow: wrap;
 }
 
 
