@@ -5,4 +5,7 @@ class Menu < ActiveRecord::Base
     def self.active 
         all.where(active_menu: true)
     end
+    def self.notactive 
+        all.where(active_menu: false)
+    end
 end

@@ -29,61 +29,65 @@
   
   <div class="sidebar">
       <ul>
-        <li><a href="/owner" class="active">
+        <li><a href="/owner" class="active"style="text-decoration: none;">
           <span class="icon"><i class="fas fa-book"></i></span>
           <span class="title">Menus</span>
           </a></li>
-        <li><a href="/userdash">
+        <li><a href="/userdash"style="text-decoration: none;">
           <span class="icon"><i class="	fas fa-child"></i></span>
           <span class="title">Users</span>
           </a></li>
-        <li><a href="/clerkdash">
+        <li><a href="/clerkdash"style="text-decoration: none;">
           <span class="icon"><i class="fas fa-male"></i></span>
           <span class="title">Clerks</span>
           </a></li>
-        <li><a href="/salesdash" >
+        <li><a href="/salesdash"style="text-decoration: none;" >
           <span class="icon"><i class="fab fa-btc"></i></span>
           <span class="title">Sales Report</span>
           </a></li>
-        <li><a href="/orderdash">
+        <li><a href="/orderdash"style="text-decoration: none;">
           <span class="icon"><i class="fas fa-cart-plus"></i></span>
           <span class="title">Orders</span>
           </a></li>
     </ul>
   </div>
   <div class="main_container">
-      <div class="ash" style="display: flex;">
-     <% Menu.all.each do |menu| %>
-      <div class="border-scroll">
-        
-        <h1 style="color: #E62E5D;margin-left: auto;font-size:40px;" align="center"><%= menu.name %></h1>
-        <div class="item-scrollbar">
-        
-        
+      <%= form_with(url: "/menuhelpers", method: "POST") do %>
+    <div class="ash" style="display: flex;">
+    
+      <div class="addmenu">
+         <input class="addclerk-text" type="text" placeholder="Create a New Menu" name="name">
+      </div>
+       <div class="border-scroll">
+        <h1 style="color: #E62E5D;margin-left: auto;font-size:40px;" align="center">Add Menu Items</h1>
+        <div class="item-scrollbar-menu">
           <ol>
             <% Category.all.each do |category| %>
-            <%item=Menuhelper.of_user(menu,category)%>
-            <%if item.present? then%>
             <p style="padding: 2px;font-size: 30px;"><%= category.name %></p>
-            <%end%>
-            <% item.each do |item| %>
-              <% cat=Menuitem.find(item.menuitem_id)%>
+            <%menu= category.menuitems%>
+            <% menu.each do |menu| %>
                 <li class="menuitem">
                   <label class="menuitem-container">
-                    <h3>
-                      <%=cat.name%><h3 style="margin-left:15px;font-style:italic;font-size:15px;color:#E62E5D;">&#x20b9;<%=cat.price%></h3></h3>
-                    <img class="menuitem-image" src=<%= cat.img_url %> style="float: right;" href="" height="100" width="100">
+                    <%= check_box_tag 'menu_ids[]', menu.id -%>
+                      <%=menu.name%>
+                      <h3 style="margin-left:15px;font-style:italic;font-size:15px;color:#E62E5D;">&#x20b9;<%=menu.price%></h3>
+                      
+                      
+                    <img class="menuitem-image" src=<%= menu.img_url %> style="float: right;" href="" height="100" width="100">
                     
                   </label>
                 </li>
-            <%end%>
-            
+                <%end%>
               <%end%> 
           </ol>
-          
         </div>
       </div>
-      <%end%>
+        <input class="addmenu-button" type="submit" value="Create">
+      
     </div>
+    <%end%>
+
+     
+     
   </div>
 </main>

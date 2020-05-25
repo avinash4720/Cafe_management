@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   resources :sessions
   resources :menuitems
   resources :owner
+  resources :menuhelpers
 end

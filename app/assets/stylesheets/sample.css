@@ -162,10 +162,18 @@
   display: inline-block;
 }
 
-.wrapper .sidebar ul li a:hover,
+.wrapper .sidebar ul li a:hover{
+  background: #100E0F;
+  color: #fff;
+  font-size: 22px;
+  transition: 0.5s all ease-in-out
+
+}
 .wrapper .sidebar ul li a.active{
   background: #100E0F;
   color: #fff;
+  transition: 0.5s all ease-in-out
+
 }
 
 .wrapper .sidebar ul li a:hover:before,
@@ -255,6 +263,20 @@
   display: block;
   padding: 10px;
   height: 200px;
+  width: auto;
+  overflow-y: auto;
+}
+.wrapper .main_container .item-scrollbar-menu{
+  background: #fff;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  margin-top: 15px;
+  padding: 15px;
+  font-size: 20px;
+  line-height: 50px;
+  display: block;
+  padding: 10px;
+  height: 300px;
   width: auto;
   overflow-y: auto;
 }
@@ -383,6 +405,13 @@
   align-items: stretch;
   margin-bottom: 40px;
 }
+.addmenu{
+  
+  margin-top: 40px;
+  height: 40px;
+  align-items: stretch;
+  margin-bottom: 40px;
+}
 
 .addclerk-text{
   padding: 6px 12px;
@@ -400,6 +429,19 @@
   border: 1px solid transparent;
   padding: 6px 22px;
   border-radius: 4px;
+}
+.addmenu-button{
+  font-size: 25px;
+  color: white;
+  background-color: #E62E5D;
+  border: 1px solid transparent;
+  padding: 6px 22px;
+  border-radius: 4px;
+  margin-top: 40px;
+  height: 40px;
+  margin-left: auto;
+  align-items: stretch;
+  margin-bottom: 40px;
 }
 
 #clerktable{
