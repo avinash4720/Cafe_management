@@ -13,13 +13,10 @@
       <div class="logo">
          DASHBOARD
       </div>
+      <div class="logo" style="margin-left:auto;">
+         SIGNOUT
+      </div>
       <ul>
-        <li><a href="#">
-          <i class="fas fa-search"></i>
-          </a></li>
-        <li><a href="#">
-          <i class="fas fa-bell"></i>
-          </a></li>
         <li><a href="/signout" data-method="delete">
           <i class="fas fa-user" ></i>
           </a></li>
@@ -112,7 +109,7 @@
                     </h3>
                     <a href="javascript:void(0)">
                         <%= form_with(url: "/menuhelpers/#{item.id}" , method: "DELETE" ) do %>
-                        <button style="background-color:Transparent;border:none">
+                        <button style="background-color:Transparent;border:none" >
                         <i class="	fas fa-trash" style="margin-left:30px;color:#E62E5D;font-size:15px;"type=submit ></i>
                         </button>
                         <%end%>

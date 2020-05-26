@@ -16,6 +16,8 @@ class MenuitemsController < ApplicationController
     def destroy
         id=params[:id]
         todo=Menuitem.find(id)
+        mh=Menuhelper.where(menuitem_id: id)
+        mh.destroy_all
         todo.destroy
         redirect_to "/owner"
     end

@@ -196,8 +196,6 @@
 
 .main_containerchart{
   width: (100% - 200px);
-  margin-top: 70px;
-  margin-left: 200px;
   padding: 15px;
   transition: all 0.3s ease;
   display: flex;
@@ -219,15 +217,14 @@
 
 .wrapper .main_container .border-scroll{
   background: #fff;
+  margin:0 auto;
   margin-bottom: 20px;
-  margin-left: 120px;
-  margin-top: 30px;
   padding: 15px;
   font-size: 14px;
   line-height: 22px;
   border-radius: 20px;
   height: auto;
-  width: 800px;
+  width: 700px;
   overflow-y: auto;
 }
 .wrapper .main_container .border-scroll-clerk{
@@ -298,9 +295,7 @@
 
 .wrapper .main_containerchart .item-chart{
   background: #fff;
-  margin-bottom: 10px;
-  margin-top: 40px;
-  margin-left: 150px;
+  margin: 0 auto;
   padding: 15px;
   font-size: 14px;
   line-height: 22px;
@@ -563,22 +558,65 @@
 }
 
 
-.card {
-  margin: 0 auto;
-  margin-top: 40px;
-  border: none;
-  -webkit-box-shadow: 0px 1px 2px 1px rgba(154, 154, 204, 0.22);
-  -moz-box-shadow: 0px 1px 2px 1px rgba(154, 154, 204, 0.22);
-  box-shadow: 0px 1px 2px 1px rgba(154, 154, 204, 0.22)
+.panel {
+box-shadow: 0 2px 0 rgba(0,0,0,0.05);
+border-radius: 0;
+border: 0;
+margin-bottom: 24px;
 }
 
-.card-header {
-  background-color: #fff;
-  border-bottom: 1px solid #e6e6f2
+.panel-dark.panel-colorful {
+background-color: #3b4146;
+border-color: #3b4146;
+color: #fff;
 }
 
+.panel-danger.panel-colorful {
+background-color: #f76c51;
+border-color: #f76c51;
+color: #fff;
+}
 
+.panel-primary.panel-colorful {
+background-color: #5fa2dd;
+border-color: #5fa2dd;
+color: #fff;
+}
 
-.text-dark {
-  color: #3d405c !important
+.panel-info.panel-colorful {
+background-color: #4ebcda;
+border-color: #4ebcda;
+color: #fff;
+}
+
+.panel-body {
+padding: 25px 20px;
+}
+
+.panel hr {
+border-color: rgba(0,0,0,0.1);
+}
+
+.mar-btm {
+margin-bottom: 15px;
+}
+
+h2, .h2 {
+font-size: 28px;
+}
+
+.small, small {
+font-size: 85%;
+}
+
+.text-sm {
+font-size: .9em;
+}
+
+.text-thin {
+font-weight: 300;
+}
+
+.text-semibold {
+font-weight: 600;
 }

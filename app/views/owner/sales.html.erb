@@ -97,13 +97,10 @@
       <div class="logo">
          DASHBOARD
       </div>
+      <div class="logo" style="margin-left:auto;">
+         SIGNOUT
+      </div>
       <ul>
-        <li><a href="#">
-          <i class="fas fa-search"></i>
-          </a></li>
-        <li><a href="#">
-          <i class="fas fa-bell"></i>
-          </a></li>
         <li><a href="/signout" data-method="delete">
           <i class="fas fa-user" ></i>
           </a></li>
@@ -136,56 +133,65 @@
     </ul>
   </div>
   
-  <div class="main_containerchart">
-    <div class="item-chart">
-        <div id="chartContainer1" style="height: 400px; width: 600px;" ></div>
-        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-    </div>
+  <div class="main_container" >
+      <div class="main_containerchart">
+        <div class="item-chart">
+            <div id="chartContainer1" style="height: 400px; width: 600px;" ></div>
+            <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        </div>
 
-    <div class="item-chart">
-        <div id="chartContainer2" style="height: 400px; width: 600px;" ></div>
-        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-    </div>
+        <div class="item-chart">
+            <div id="chartContainer2" style="height: 400px; width: 600px;" ></div>
+            <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        </div>
+      </div>
+      
+<div class="container bootstrap snippet" style="margin-top:30px;">
+    <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="panel panel-dark panel-colorful">
+                <div class="panel-body text-center">
+                	<p class="text-uppercase mar-btm text-sm">Customers</p>
+                	<i class="fa fa-users fa-5x"></i>
+                	<hr>
+                	<p class="h2 text-thin"><%=User.customer().count%></p>
+                	
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+        	<div class="panel panel-danger panel-colorful">
+        		<div class="panel-body text-center">
+        			<p class="text-uppercase mar-btm text-sm">Orders</p>
+        			<i class="fa fa-shopping-cart fa-5x"></i>
+        			<hr>
+        			<p class="h2 text-thin"><%=Order.count%></p>
+        			
+        		</div>
+        	</div>
+        </div>
+        <%t=0%>
+              <%Order.all.each do |order|%>
+                <%t=t+order.cost%>
+                <%end%>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+        	<div class="panel panel-info panel-colorful">
+        		<div class="panel-body text-center">
+        			<p class="text-uppercase mar-btm text-sm">Revenue</p>
+        			<i class="fa fa-dollar fa-5x"></i>
+        			<hr>
+        			<p class="h2 text-thin"><%=t%></p>
+        			
+        		</div>
+        	</div>
+        </div>        
+	</div>
+</div>
+
+    
+    
+    
+    
   </div>
-    
-    
-    
-    <div id="mydiv" style="display:none;"> 
-      <table id="customers">
-        <tr>
-          <th>Name</th>
-          <th>Total Amount</th>
-        </tr>
-        <tr>
-          <td>Alfreds Futterkiste</td>
-          <td>457834</td>
-        </tr>
-        <tr>
-          <td>Berglunds snabbköp</td>
-          <td>45678</td>
-        </tr>
-        <tr>
-          <td>Centro comercial Moctezuma</td>
-          <td>20000</td>
-        </tr>
-        <tr>
-          <td>Ernst Handel</td>
-          <td>1000</td>
-        </tr>
-      </table>
-    
-    </div>
-    
-    <script>
-    
-      function myFunction() {
-        var x = document.getElementById("mydiv");
-        if (x.style.display === "none") {
-          x.style.display = "block";
-        } else {
-          x.style.display = "none";
-        }
-      }
-    </script>
 </main>    
 
