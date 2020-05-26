@@ -15,8 +15,16 @@ class MenuhelpersController < ApplicationController
         menu_ids.each do |item|
             i=Menuitem.find(item)
             mh=Menuhelper.new(menu_id: menu.id,menuitem_id: item,category_id: i.category_id)
-            mh.save
+            mh.save!
         end
+        redirect_to "/menus"
+    end
+    def update
+        menu=params[:menuname]
+        item=params[:item]
+        i=Menuitem.find(item)
+        mh=Menuhelper.new(menu_id: menu,menuitem_id: item,category_id: i.category_id)
+        mh.save!
         redirect_to "/menus"
     end
 

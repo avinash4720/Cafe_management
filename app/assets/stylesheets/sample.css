@@ -166,13 +166,16 @@
   background: #100E0F;
   color: #fff;
   font-size: 22px;
-  transition: 0.5s all ease-in-out
+  transition: 0.5s all ease-in-out;
+  transition: 0.5s ease-out;
 
 }
 .wrapper .sidebar ul li a.active{
   background: #100E0F;
   color: #fff;
-  transition: 0.5s all ease-in-out
+  transition: 0.5s all ease-in-out;
+  transition: 0.5s ease-out;
+
 
 }
 

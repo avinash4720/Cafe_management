@@ -132,6 +132,49 @@
       </div>
       <%end%>
     </div>
-    
+    <div class="editmenuitem">
+        <h2 align="center"style="font-size:30px;margin-top:20px;">UPDATE MENUS</h2>
+    </div>
+    <div class="sash" style="display:flex;">
+        <div class="categoryb">
+              <h1 align="center" style="font-weight:400px;font-size:30px;">Add a Menu Item</h1>
+              <%= form_with(url: "/menuhelpers", method: "PATCH") do %>
+              <section style="display: flex;align-items: center;">
+                <h3>Menu</h3>
+                <select id="user_id" name="menuname" class="select-category">
+                  <option value="">Choose a Menu</option>
+                  <% Menu.all.each do |menu| %> 
+                  <option value="<%=menu.id%>"><%=menu.name%></option>
+                  <%end%>
+                </select>
+              </section>
+              <section style="display: flex;align-items: center;">
+                <h3>MenuItem</h3>
+                <select id="user_id" name="item" class="select-category">
+                  <option value="">Choose a Menuitem</option>
+                  <% Menuitem.all.each do |item| %> 
+                  <option value="<%=item.id%>"><%=item.name%></option>
+                  <%end%>
+                </select>
+              </section>
+              <input class="addmenuitem-button" type="submit" value="Add" >
+              <%end%>
+        </div>
+        <div class="categoryb">
+              <h1 align="center" style="font-weight:400px;font-size:30px;">Delete Menu</h1>
+              <%= form_with(url: "/menudelete", method: "GET") do %>
+              <section style="display: flex;align-items: center;">
+                <h3>Menu</h3>
+                <select id="user_id" name="menuname" class="select-category">
+                  <option value="">Choose a Menu</option>
+                  <% Menu.all.each do |menu| %> 
+                  <option value="<%=menu.id%>"><%=menu.name%></option>
+                  <%end%>
+                </select>
+              </section>
+              <input class="addmenuitem-button"  type="submit" value="Delete" >
+              <%end%>
+        </div>
+    </div>
        
 </main>
