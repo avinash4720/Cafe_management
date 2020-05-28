@@ -10,4 +10,13 @@ class User < ActiveRecord::Base
     def self.customer
         all.where(role: "customer")
     end
+    def walkin
+        if role == "clerk"
+            return true
+        end
+    end
+
+    def online
+        return true if role == "customer"
+    end
 end

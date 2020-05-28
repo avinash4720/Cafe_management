@@ -1,0 +1,11 @@
+<% pendingOrder.each do |order| %>
+<% if order.user.walkin %>
+ <%= form_with(url: "/dashboard/#{order.id}", method: "put") do %>
+ <div class="clerk-sec-pennding-orders-info">
+    <p class="clerk-sec-pennding-orders-para"><i class="far fa-user"></i> <%= order.user.first_name.capitalize %></p>
+    <p class="clerk-sec-pennding-orders-order"  id="<%= order.id %>"><i class="fas fa-list"></i> <%=order.order_items[0].item_name %> ...</p>
+    <button type="submit" class="delivered-Btn"><i class="fas fa-check"></i> Delivered</button>
+</div>
+<% end %>
+<% end %>
+<% end %>

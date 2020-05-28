@@ -56,7 +56,7 @@
                   <option disabled selected value>Choose a User</option>
                   <%user=User.customer()%>
                   <% user.each do |user| %> 
-                  <option value="<%=user.name%>"><%=user.name%></option>
+                  <option value="<%=user.first_name%>"><%=user.first_name%></option>
                   <%end%>
             </select>
             <h1 style="color: white; margin-top: 4px;margin-left:40px;font-size:20px;font-weight:bold;">FROM</h2>
@@ -77,21 +77,25 @@
           <th>STATUS</th>
           <th>INVOICE</th>
         </tr>
-        <tr>
-          <%User.all.each do|user| %>
+        <%User.all.each do|user| %>
             <%order=user.orders%>
             <% if order.present? then%>
             <%order.each do |order|%>
+        <tr>
+          
+            
                 <td><%=order.id%></td>
-                <td><%=user.name%></td>
+                <td><%=user.first_name%></td>
                 <td><%=order.date.to_time.strftime('%B %e %Y')%></td>
                 <td><%=order.cost%></td>
                 <td><%=order.delivered_status ? "Delivered" : "Pending" %></td>
                 <td><%= link_to "Generate", "/invoice?id=#{order.id}" %></td>
-            <%end%>    
-            <%end%>
-          <%end%>
+               
+            
         </tr>
+        <%end%> 
+        <%end%>
+          <%end%>
       </table>
     
     </div>

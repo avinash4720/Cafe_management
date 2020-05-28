@@ -18,6 +18,9 @@
     <%= stylesheet_link_tag "sign" %>
     <%= stylesheet_link_tag "animate" %>
     <%= stylesheet_link_tag "home" %>
+    <%= stylesheet_link_tag "menu" %>
+    <%= stylesheet_link_tag "cart" %>
+    <%= stylesheet_link_tag "cDashboard" %>
     <script src="https://kit.fontawesome.com/15f26acd7c.js" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -27,7 +30,28 @@
     </head>
 
   <body>
+    <% if flash[:error] || flash[:session] %>
+      <div class="falsh-message ">
+      <button class="flash-closeBtn "><i class="far fa-times-circle"></i></button>
+        <div class="flash-message-para justify-content-center">
+          <% if flash[:error] %>
+            <div class="flash-content">
+              <p><%= flash[:error] %></p>
+            </div>
+            </div>
+          <% end %>
+          <% if flash[:session] %>
+          <div class="flash-content">
+          <p ><%= flash[:session] %></p>
+          </div>
+          <% end %>
+          
+        </div>
+      </div>
+    <% end %>
     <%= yield %>
     <%= javascript_pack_tag 'home', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'menu', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'cDashboard', 'data-turbolinks-track': 'reload' %>
     </body>
 </html>

@@ -1,0 +1,281 @@
+.food-main-section {
+    height: 90vh;
+    z-index: 2;
+}
+
+.food-section {
+    display: flex;
+    height: 85vh;
+    position: static;
+    background-color: #17181A;
+}
+
+.food-item {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    transition: 0.6s;
+}
+
+.food-item:hover {
+    flex: 1.4;
+}
+
+.food-pic {
+    position: absolute;
+    height: 100%;
+    left: 50%;
+    transform: translate(-50%);
+    filter: grayscale(50%);
+    transition: 0.3s;
+}
+
+.food-item:hover .food-pic {
+    filter: grayscale(0);
+}
+
+.food-info {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 2rem;
+    color: yellow;
+    position: absolute;
+    top: 10%;
+    text-align: center;
+    width: 100%;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.food-item:hover .food-info {
+    opacity: 1;
+    top: 20%;
+}
+
+.food-section-line {
+    position: absolute;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+    font-size: 3rem;
+    color: white;
+    bottom: 8%;
+    left: 50vh;
+    right: 50vh;
+    background-color: rgb(17, 18, 20);
+    padding: 1.5%;
+    border-radius: 200px;
+    letter-spacing: 4px;
+}
+
+.menu-category {
+    text-align: right;
+    padding: 10% 3%;
+}
+
+.menu-category-name-link {
+    padding: 3%;
+    font-size: 2rem;
+    color: #17181A;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.menu-category-name a {
+    text-decoration: none;
+    outline: none;
+    font-size: 2.5rem;
+    color: #17181A;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.menu-item-section {
+    height: 95vh;
+    margin-top: 7%;
+    padding: 5% 2%;
+    text-align: center;
+    align-items: center;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.foot-icon-menu {
+    color: white;
+}
+
+.menu-card {
+    width: 25vh;
+    height: 35vh;
+    background-color: #17181A;
+    text-align: center;
+    margin: auto;
+    position: relative;
+    border-radius: 20px;
+    transition: 0.5s;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.7), 0 6px 30px 0 rgba(0, 0, 0, 0.7);
+}
+
+.menu-items {
+    height: 48vh;
+}
+
+.menu-card img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 20px;
+}
+
+.menu-item-name-para {
+    visibility: hidden;
+}
+
+.menu-item-name-header {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+    font-size: 1rem;
+    padding: 5% 3%;
+    max-height: 20vh;
+    line-height: 1.2;
+    transition: 1s;
+}
+
+.menu-item-name-price {
+    visibility: hidden;
+}
+
+.menu-item-order-now {
+    visibility: hidden;
+}
+
+.menu-card:hover .menu-item-order-now {
+    visibility: visible;
+    margin: auto;
+    color: white;
+    top: 80%;
+    width: 100%;
+}
+
+.menu-item-order-now-link,
+.menu-item-order-now-link-sign {
+    color: #F73859;
+    border-radius: 5px;
+    background-color: yellow;
+    padding: 5% 10%;
+    margin: auto;
+    font-size: 0.8rem;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.menu-item-order-now-link:hover,
+.menu-item-order-now-link-sign:hover {
+    text-decoration: none;
+    color: #17181A;
+}
+
+.menu-card:hover .menu-item-name-price {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+    font-size: 1rem;
+    padding: 3%;
+    max-height: 25%;
+    line-height: 1.2;
+    visibility: visible;
+    transition: 1s;
+}
+
+.menu-card:hover {
+    transform: scale(1.15);
+}
+
+.menu-card:hover img {
+    filter: blur(5px) contrast(70%);
+}
+
+.menu-card:hover .menu-item-name-para {
+    visibility: visible;
+    max-width: 100%;
+    text-align: center;
+    top: 20%;
+    font-size: 0.6rem;
+    font-weight: bold;
+    padding: 5% 15% 5% 10%;
+    max-height: 25%;
+    line-height: 1.3;
+    color: rgb(228, 228, 228);
+}
+
+.menu-card:hover .menu-item-name {
+    position: absolute;
+    color: black;
+    text-align: center;
+    width: 100%;
+    height: 45vh;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    color: white;
+    top: 5%;
+}
+
+@media (max-width:600px) {
+    .food-section {
+        height: 40vh;
+    }
+    .food-item:hover {
+        flex: 1.8;
+    }
+    .food-info {
+        top: auto;
+        bottom: 10%;
+    }
+    .food-item:hover .food-info {
+        opacity: 1;
+        top: auto;
+        bottom: 20%;
+        font-size: 1.4rem;
+    }
+    .food-section-line {
+        position: absolute;
+        font-family: 'Roboto', sans-serif;
+        font-weight: bold;
+        font-size: 1.45rem;
+        color: white;
+        bottom: auto;
+        top: 36.5%;
+        left: 0;
+        right: 0;
+        background-color: rgb(17, 18, 20);
+        border-radius: 80px;
+        letter-spacing: 4px;
+    }
+    .food-main-section {
+        height: 45vh;
+        z-index: 2;
+    }
+}
+
+.menu-category {
+    position: relative;
+}
+
+.cart {
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    font-size: 25vh;
+    color: #F73859;
+    transform: rotate(-15deg);
+    filter: opacity(30%);
+    text-align: center;
+}
+
+.cart-number {
+    font-family: 'Roboto', sans-serif;
+    position: absolute;
+    left: 50%;
+    color: grey;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #F73859;
+}

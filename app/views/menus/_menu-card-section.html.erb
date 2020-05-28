@@ -1,0 +1,36 @@
+<% category.each do |category| %>
+  <% menu = category.menuitems.name_sort %>
+  <div class="menu-items" id=<%= category.name[0] %>>
+    <div class="row justify-content-center">
+      <% i = 1 %>
+      <% menu.each do |menu| %>
+      <% if i%4 == 1 && i!=1%>
+        <div class="menu-items">
+        <div class="row justify-content-center">
+    <% end %>
+    <div class="col-lg-3 col-sm-12">
+      <div class="menu-card">
+        <img class="menu-item-img-src" src=<%= menu.img_url %> alt="BURGER" width="600" height="400">
+        <div class="menu-item-name">
+          <h3 class="menu-item-name-header"><%= menu.name %></h3>
+          <p class="menu-item-name-para"><%= menu.description %><p>
+          <h3 class="menu-item-name-price"><i class="fas fa-rupee-sign"></i> <%= menu.price %></h3>
+          <div class="menu-item-order-now">
+          <% if @current_user %>
+            <a class="menu-item-order-now-link add-cart" href="#/">Add to Cart</a>
+          <% else %>
+            <a class="menu-item-order-now-link add-cart-sign" href="#/" >Add to Cart</a>
+          <% end %>
+          </div>
+        </div>
+    </div>
+  </div>
+  <% if i%4 == 1 && i!=1%>
+  </div>
+  </div>
+  <% end %>
+  <% i = i+1 %>
+<% end %>
+</div>
+</div>
+<% end %>

@@ -83,7 +83,7 @@
                 <div class="row contacts">
                     <div class="col invoice-to">
                         <div class="text-gray-light">INVOICE TO:</div>
-                        <h1 class="to" style="font-weight:bold;font-size:40px"><%=@order.user.name.titlecase%></h1>
+                        <h1 class="to" style="font-weight:bold;font-size:40px"><%=@order.user.first_name.titlecase%><%=" "%><%=@order.user.last_name.titlecase%></h1>
                     </div>
                     <div class="col invoice-details">
                         <h1 class="invoice-id">INVOICE 3-2-1</h1>

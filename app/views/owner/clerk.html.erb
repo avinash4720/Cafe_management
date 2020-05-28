@@ -65,7 +65,7 @@
                   <label class="menuitem-container">
                   
                     <h3>
-                      <%=user.name%>
+                      <%=user.first_name%>
                       </h3>
                       <a href="javascript:void(0)">
                         <%= form_with(url: "/destroyclerk?id=#{user.id}" , method: "DELETE" ) do %>

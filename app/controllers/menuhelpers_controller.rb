@@ -5,7 +5,7 @@ class MenuhelpersController < ApplicationController
         id=params[:id]
         t=Menuhelper.find(id)
         t.destroy
-        redirect_to "/menus"
+        redirect_to "/menusdash"
     end
     def create
         name=params[:name]
@@ -17,7 +17,7 @@ class MenuhelpersController < ApplicationController
             mh=Menuhelper.new(menu_id: menu.id,menuitem_id: item,category_id: i.category_id)
             mh.save!
         end
-        redirect_to "/menus"
+        redirect_to "/menusdash"
     end
     def update
         menu=params[:menuname]
@@ -25,7 +25,7 @@ class MenuhelpersController < ApplicationController
         i=Menuitem.find(item)
         mh=Menuhelper.new(menu_id: menu,menuitem_id: item,category_id: i.category_id)
         mh.save!
-        redirect_to "/menus"
+        redirect_to "/menusdash"
     end
 
 

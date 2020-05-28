@@ -1,0 +1,118 @@
+<div class="order-list-sec invisible">
+<div class="Order-list-header">
+<p>Order</p>
+<button class="order-list-closeBtn "><i class="far fa-times-circle"></i></button>
+</div>
+<div class="order-list-items">
+</div>
+<p class="order-list-pay">To Pay : <i class="fas fa-rupee-sign"></i><span class="order-list-price"></span> </p>
+</div>
+
+
+<main class="clerk-Dashboard">
+    <section class="nav-bar-section">
+        <nav class="navbar navbar-dark nav-color navbar-expand-lg fixed-top">
+            <a class="navbar-brand animated tada delay-5s" href=""><i class="fas fa-utensils nav-icon"></i> <span class="logo-foody">Foody</span> <span class="Blinders-logo">Blinders</span></a>
+            <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon nav-button"></span>
+        </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Home</a>
+                    </li>
+                   
+                    <li class="nav-item">
+                        <a class="nav-link" href="/menus">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard">Dashboard</a>
+                    </li>
+                    <% if @current_user %>
+                    <li class="nav-item">
+                    <div class="cart-div">
+                        <a class="nav-link" href="/cart"><i class="fas fa-shopping-cart"></i></a>
+                        <p class="cart-number"></p>
+                    </div>
+                    </li>
+                    <li class="nav-item">
+                                <%= link_to "Sign Out", destroy_session_path, class:"nav-link"%>
+                            </li>
+                    <% else %>
+                        <li class="nav-item">
+                            <a class="nav-link" id="sign-in-link" href="#">Sign In</a>
+                        </li>
+                    <% end %>
+                </ul>
+            </div>
+        </nav>
+    </section>
+    <section class="Pending-orders">
+        <div class="container-fluid">
+            <div class="row Pending-orders-row">
+                <div class="col-lg-4 col-sm-12 pending-cards-col justify-content-center">
+                    <div class="Pending-orders-cards">
+                        <div class="info-circle">
+                            <h1 class="info-header">5</h1>
+                        </div>
+                        <div class="info-details">
+                            <h1>Walk-In Customers</h1>
+                        </div>
+                    </div>
+                    <div class="Pending-orders-cards">
+                        <div class="info-circle">
+                            <h1 class="info-header"><%= Order.pending %></h1>
+                        </div>
+                        <div class="info-details">
+                            <h1>Pending Orders</h1>
+                        </div>
+                    </div>
+                    <div class="Pending-orders-cards">
+                        <div class="info-circle">
+                            <h1 class="info-header"><%= Order.delivered_today %></h1>
+                        </div>
+                        <div class="info-details">
+                            <h1>Delivered Today</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-sm-12 ">
+                    <div class=" Pending-orders-details ">
+                        <div class="clerk-name">
+                            <h1>Hey, <%= @current_user.first_name.capitalize %></h1>
+                        </div>
+                        <div class="clerk-sec-date">
+                            <h1><%= Date.today %></h1>
+                        </div>
+                        <div class="clerk-sec-time" id="time"></div>
+                        <ul class="clerk-sec-list">
+                            <li class="clerk-sec-list-item">
+                                <button class="clerk-sec-list-btn border-bottom">Walk-In Orders</button>
+                            </li>
+                            <li class="clerk-sec-list-item">
+                                <button class="clerk-sec-list-btn">Online Orders</button>
+                            </li>
+                            <li class="clerk-sec-list-item">
+                                <button class="clerk-sec-list-btn">Delivered</button>
+                            </li>
+                        </ul>
+                        <div class="clerk-sec-pennding-orders visible">
+                            <div class="clerk-sec-pennding-orders-div">
+                               <%= render partial: "pending-order", locals:{pendingOrder: Order.pendingorder} %>
+                            </div>
+                        </div>
+                        <div class="clerk-sec-pennding-orders ">
+                            <div class="clerk-sec-pennding-orders-div">
+                             <%= render partial: "online-order", locals:{pendingOrder: Order.pendingorder} %>
+                            </div>
+                        </div>
+                        <div class="clerk-sec-pennding-orders ">
+                            <div class="clerk-sec-pennding-orders-div">
+                             <%= render partial: "delivered-order", locals:{delivered: Order.delivered} %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+</main>

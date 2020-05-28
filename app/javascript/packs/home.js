@@ -1,15 +1,38 @@
 window.onscroll = () => {
     const nav = document.querySelector('.navbar');
-    if (this.scrollY >= 200)
+    if (window.scrollY >= 200)
         nav.classList.add("nav-scrolled");
     else
         nav.classList.remove("nav-scrolled");
 }
 
+
+let flash = document.querySelector('.falsh-message ');
+let flashBtn = document.querySelector('.flash-closeBtn');
+
+if (flashBtn) {
+    flashBtn.addEventListener('click', () => {
+        flash.classList.remove("zoomIn");
+        flash.classList.add("zoomOut");
+        flash.classList.add('invisible');
+        flash.classList.remove("visible");
+    })
+
+}
+
+if (flash) {
+    flash.classList.remove('invisible');
+    flash.classList.add("visible");
+    flash.classList.remove("zoomOut");
+    flash.classList.add("zoomIn");
+}
+
+
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');
 const main = document.getElementById('main-section');
+
 
 signUpButton.addEventListener('click', () => {
     container.classList.add("right-panel-active");
@@ -19,8 +42,11 @@ signInButton.addEventListener('click', () => {
     container.classList.remove("right-panel-active");
 });
 
-document.getElementById('sign-in-link').addEventListener('click', popup, false);
-document.getElementById('sign-in-link-b').addEventListener('click', popup, false);
+let add_cart_sign = document.querySelectorAll('.add-cart-sign');
+
+for (let i = 0; i < add_cart_sign.length; i++) {
+    add_cart_sign[i].addEventListener('click', popup, false);
+}
 
 function popup() {
     container.classList.add("visible");
@@ -45,5 +71,14 @@ function popup() {
     }
 };
 
+let navBtn = document.querySelectorAll('.nav-link');
 
-console.log("custom js file loaded")
+for (let i = 0; i < navBtn.length; i++) {
+    navBtn[i].addEventListener('click', () => {
+        activeBtn = document.querySelector('.active');
+        activeBtn.classList.remove('active');
+        navBtn[i].classList.add('active');
+    })
+}
+
+document.getElementById('sign-in-link').addEventListener('click', popup, false);

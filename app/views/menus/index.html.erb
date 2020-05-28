@@ -1,0 +1,227 @@
+ <div class="container-body">
+        <div class="container-sign animated" id="container">
+            <div class="form-container sign-up-container">
+                <button id="close-btn-left"><i class="far fa-times-circle"></i></button>
+                <div class="sign-logo">
+                    <a class="navbar-brand" href=""><i class="fas fa-utensils nav-icon sign-icon"></i> <span class="logo-foody sign-foody">Foody</span> <span class="Blinders-logo">Blinders</span></a>
+                </div>
+                <%= form_with(url: "/users/new", method: "get", html: {class:"sign-form"}) do %>
+                    <h1 class="sign-h1">Create Account</h1>
+                    <!-- <div class="social-container">
+                        <a class="sign-a" href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                        <a class="sign-a" href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                        <a class="sign-a" href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <span class="sign-span">or use your email for registration</span> -->
+                    <input class="sign-input" type="text" name="first_name" placeholder="First Name" required/>
+                    <input class="sign-input" type="text" name="last_name" placeholder="Last Name" />
+                    <input class="sign-input" type="email"  name="email" placeholder="Email" required/>
+                    <input class="sign-input" type="password" name="password"  placeholder="Password" required/>
+                    <button type="submit" class="sign-btn">Sign Up</button>
+                <% end %>
+            </div>
+            <div class="form-container sign-in-container">
+                <div class="sign-logo">
+                    <a class="navbar-brand" href=""><i class="fas fa-utensils nav-icon sign-icon"></i> <span class="logo-foody sign-foody">Foody</span> <span class="Blinders-logo">Blinders</span></a>
+                </div>
+                <%= form_with(url: "/users", method: "post", html: {class:"sign-form"}) do %>
+                    <h1 class="sign-h1">Sign in</h1>
+                    <!-- <div class="social-container">
+                        <a class="sign-a" href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                        <a class="sign-a" href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                        <a class="sign-a" href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <span class="sign-span">or use your account</span> -->
+                    <input class="sign-input" name="email" type="email" placeholder="Email" />
+                    <input class="sign-input" name="password" type="password" placeholder="Password" />
+                    <a class="sign-a" href="#">Forgot your password?</a>
+                    <button class="sign-btn">Sign In</button>
+                <% end %>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1 class="sign-h1-tag">Order Now!</h1>
+                        <p class="sign-para">To eat more delicious food, login with your personal info.</p>
+                        <button class="ghost sign-btn" id="signIn">Sign In</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <button id="close-btn-right"><i class="far fa-times-circle"></i></button>
+                        <h1 class="sign-h1-tag">Hungry?</h1>
+                        <p class="sign-para">Enter your personal details and start Ordering.</p>
+                        <button class="ghost sign-btn" id="signUp">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<main id="main-section" class="main-menu-section">
+    <section class="nav-bar-section">
+        <nav class="navbar navbar-dark navbar-expand-lg fixed-top">
+            <a class="navbar-brand animated tada delay-5s" href=""><i class="fas fa-utensils nav-icon"></i> <span class="logo-foody">Foody</span> <span class="Blinders-logo">Blinders</span></a>
+            <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon nav-button"></span>
+        </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  active" href="#">Menu</a>
+                    </li>
+                
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact Us</a>
+                        </li>
+                        
+                    <% if @current_user %>
+                    <% if @current_user.role == "clerk" %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/dashboard">Dashboard</a>
+                        </li>
+                        <% end %>
+                        <li class="nav-item">
+                            <a class="nav-link" id="sign-in-link" href="#">Orders</a>
+                        </li>
+                    
+                    <li class="nav-item">
+                    <div class="cart-div">
+                        <a class="nav-link" href="/cart"><i class="fas fa-shopping-cart"></i></a>
+                        <p class="cart-number"></p>
+                    </div>
+                    </li>
+                    <li class="nav-item">
+                                <%= link_to "Sign Out", destroy_session_path, class:"nav-link"%>
+                            </li>
+                    <% else %>
+                        <li class="nav-item">
+                            <a class="nav-link" id="sign-in-link" href="#">Sign In</a>
+                        </li>
+                    <% end %>
+                    
+                </ul>
+            </div>
+        </nav>
+    </section>
+    <section class="food-main-section">
+        <div class="food-section">
+            <div class="food-item">
+                <img src="<%= asset_path('salad.jpg') %>" alt="BURGER" class="food-pic">
+                <div class="food-info">
+                    <h1>STARTER</h1>
+                </div>
+            </div>
+            
+            <div class="food-item">
+                <img src="<%= asset_path('pizza.jpg') %>" alt="BURGER" class="food-pic">
+                <div class="food-info">
+                    <h1>PIZZA</h1>
+                </div>
+            </div>
+            <div class="food-item">
+                <img src="<%= asset_path('burger.jpg') %>" alt="BURGER" class="food-pic">
+                <div class="food-info">
+                    <h1>BURGER</h1>
+                </div>
+            </div>
+            <div class="food-item">
+                <img src="<%= asset_path('pasta.jpg') %>" alt="BURGER" class="food-pic">
+                <div class="food-info">
+                    <h1>PASTA</h1>
+                </div>
+            </div>
+            <div class="food-item">
+                <img src="<%= asset_path('icecream.jpg') %>" alt="BURGER" class="food-pic">
+                <div class="food-info">
+                    <h1>ICE CREAM</h1>
+                </div>
+            </div>
+            <div class="food-item">
+                <img src="<%= asset_path('shakes.jpg') %>" alt="BURGER" class="food-pic">
+                <div class="food-info">
+                    <h1>SHAKES</h1>
+                </div>
+            </div>
+            
+            <div class="food-section-line">
+                <h1>EAT WHAT YOU<span class="hungry"> LOVE</span>
+                </h1>
+            </div>
+        </div>
+    </section>
+    <section class="Menu-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4 col-sm-12 menu-category">
+                 <%= render partial: "category-section", locals:{category: Category.all} %>
+                <div class="cart">
+                <i class="fas fa-shopping-cart"></i>
+                </div>
+                
+                </div>
+                <div class="col-lg-8 col-sm-12 menu-item-section">
+                <%= render partial: "menu-card-section", locals:{category: Category.all} %>   
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="container-fluid contact" id="contact">
+        <div class="row row-contact">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-contact">
+                    <a class="contact-icon" href="#"><i class="fas fa-utensils nav-icon "></i> <span class="logo-foody">Foody</span> <span class="Blinders-logo">Blinders</span></a>
+                    <h1 class="contact-header1">10 AM - 11 PM</h1>
+                    <p class="contact-para">221B,</p>
+                    <p class="contact-para">Baker Street,</p>
+                    <p class="contact-para">London</p>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-contact">
+                    <h1 class="contact-header">Connect with Us</h1>
+                    <p class="contact-para"><i class="fas fa-phone"></i> 9629028119</p>
+                    <p class="contact-para"><i class="far fa-envelope"></i> foodyblinders@gmail.com</p>
+                    <ul class="social-icon-ul">
+                        <li class="social-icon-link f"><a><i class="fab fa-facebook social-icon"></i></a></li>
+                        <li class="social-icon-link i "><a><i class="fab fa-instagram social-icon"></i></a></li>
+                        <li class="social-icon-link f"><a><i class="fab fa-twitter social-icon"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-contact">
+                    <h1 class="contact-header">Useful Links</h1>
+                    <ul>
+                        <li class="contact-link">
+                            <a class="contact-link" href="/">Home</a>
+                        </li>
+                        <li class="contact-link">
+                            <a class="contact-link" href="#">Menu</a>
+                        </li>
+                  
+                        <li class="contact-link">
+                            <a class="contact-link" href="#contact">Contact Us</a>
+                        </li>
+                    
+                        <% if @current_user %>
+                        <% if @current_user.role == "clerk" %>
+                        <li class="contact-link">
+                            <a class="contact-link" href="/dashboard">Dashboard</a>
+                        </li>
+                        <% end %>
+                        
+                    
+                    <li class="contact-link">
+                                <%= link_to "Sign Out", destroy_session_path, class:"contact-link"%>
+                            </li>
+                    <% else %>
+                        <li class="contact-link">
+                            <a class="contact-link" id="sign-in-link" href="#">Sign In</a>
+                        </li>
+                    <% end %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <p class="Created"><i class="fas fa-utensils nav-icon "></i> Created by Rohit | Avinash <i class="fas fa-utensils nav-icon  "></i></p>
+</main>
