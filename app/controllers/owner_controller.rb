@@ -18,8 +18,8 @@ class OwnerController < ApplicationController
         render "orders"
     end
     def report
-        user = params[:user]
-        u=User.find_by_name(user)
+        user = params[:user] 
+        u=User.where("first_name = ?",user).first
         from = Date.parse(params[:from]) unless params[:from].blank?
         to = Date.parse(params[:to]) unless params[:to].blank?
         if user.blank?

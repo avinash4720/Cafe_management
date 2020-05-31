@@ -58,17 +58,19 @@
           <th>AMOUNT</th>
           <th>STATUS</th>
         </tr>
+        <%@orders.each do |order|%>
         <tr>
           
             
-            <%@orders.each do |order|%>
+            
                 <td><%=order.id%></td>
-                <td><%=order.user.name%></td>
+                <td><%=order.user.first_name%></td>
                 <td><%=order.date.to_time.strftime('%B %e %Y')%></td>
                 <td><%=order.cost%></td>
                 <td><%=order.delivered_status ? "Delivered" : "Pending" %></td>
-            <%end%>    
+               
         </tr>
+        <%end%> 
       </table>
     
     </div>
